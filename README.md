@@ -1,6 +1,6 @@
 # 📒 NoteShaker
 
-NoteShaker is a simple, lightweight **note-taking app** that lets you create, read, update, and delete notes with ease.  
+Note Shaker is a simple, lightweight **note-taking app** that lets you create, read, update, and delete notes with ease.  
 It’s built to be a **minimal starting point** for experimenting with note apps while focusing on authentication, session handling, and CRUD basics.  
 check it out: [NoteShaker Live Demo](https://noteshaker.onrender.com/)
 
