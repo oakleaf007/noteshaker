@@ -43,3 +43,6 @@ These features are **not available in the current version**, but can be added in
 - 🔑 Improved session management with refresh tokens  
 
 ---
+
+## 📜 License
+This project is open source and free to use.  
