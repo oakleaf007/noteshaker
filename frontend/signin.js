@@ -34,7 +34,7 @@ catch (err){
 
 });
 function handleCredentialResponse(response){
-  fetch(`api/auth/google-login`,{
+  fetch(`/api/auth/google-login`,{
     method:"POST",
     headers: {"Content-Type": "application/json"},
     body: JSON.stringify({token:response.credential})
