@@ -249,9 +249,19 @@ a:link,a:visited{
 }
 
 .elemnt{
+   
     text-align: center;
    
 
+}
+
+.google-wrapper {
+    width: 80%;          /* Responsive */
+    max-width: 400px;    /* Desktop limit */
+    min-width: 240px;    /* Prevent tiny shrink on small screens */
+    margin: 0 auto;
+    display: flex;
+    justify-content: center;
 }
 
 @media (max-width: 768px){
