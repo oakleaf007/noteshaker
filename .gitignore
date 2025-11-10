@@ -1,5 +1,8 @@
 # Node modules
 node_modules/
+package.json
+package-lock.json
+
 
 # Logs
 npm-debug.log*
