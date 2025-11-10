@@ -256,22 +256,25 @@ a:link,a:visited{
 }
 
 .google-wrapper {
-    width: 80%;         
-    max-width: 400px;  
-     
-    margin: 0 auto;
-  
+   
+     width: 100%;
+    
+    display: flex;
     justify-content: center;
 }
 
 
-@media (max-width: 360px) {
-            .google-wrapper {
-                transform: scale(0.9);
-                transform-origin: center;
-            }
-        }
+@media (max-width: 390px) {
+    .google-wrapper > div {
+        transform: scale(0.85);
+    }
+}
 
+@media (max-width: 330px) {
+    .google-wrapper > div {
+        transform: scale(0.75);
+    }
+}
 
 
 @media (max-width: 768px){
