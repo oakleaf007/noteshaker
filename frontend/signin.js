@@ -51,7 +51,7 @@ document.getElementById("message").textContent =  data.message || data.error;
       localStorage.setItem("usrname", data.user.name);
       localStorage.setItem("loggedIn", "true");
 
-      window.location.replace = "/logged.html";
+      window.location.replace(safeUrl);
     } else{
       document.getElementById("message").textContent =  data.message || data.error;
     }
