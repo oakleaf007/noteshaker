@@ -1,7 +1,6 @@
 // Login
-
-
-const API = "http://localhost:5000/auth";
+const safeUrl = "/logged.html";
+// const API = "http://localhost:5000/auth";
 document.getElementById("login-form").addEventListener("submit", async(e) =>{
     e.preventDefault();
     const email = document.getElementById("usr").value;
@@ -21,8 +20,9 @@ try{
         localStorage.setItem("user", JSON.stringify(data.user));
         const usrname =  data.user.name;
         localStorage.setItem("usrname",usrname);
+        localStorage.setItem("email", data.user.email)
         localStorage.setItem("loggedIn", "true");
-        window.location.href = "/logged.html";
+        window.location.replace(safeUrl);
     }
 }
 catch (err){
@@ -51,7 +51,7 @@ document.getElementById("message").textContent =  data.message || data.error;
       localStorage.setItem("usrname", data.user.name);
       localStorage.setItem("loggedIn", "true");
 
-      window.location.href = "/logged.html";
+      window.location.replace = "/logged.html";
     } else{
       document.getElementById("message").textContent =  data.message || data.error;
     }

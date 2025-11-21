@@ -28,13 +28,13 @@ document.addEventListener("DOMContentLoaded", () => {
   });
 });
 
-
+const usrname = localStorage.getItem("usrname");
+         const mail = this.localStorage.getItem("email");
 
     
     window.addEventListener("DOMContentLoaded", function(){
-         const usrname = localStorage.getItem("usrname");
          
-    if(usrname){
+    if(usrname && mail){
       document.getElementById("usrname").textContent=`Welcome ${usrname}`;
     }
     else{
@@ -52,6 +52,7 @@ document.addEventListener("DOMContentLoaded", () => {
    document.getElementById("logout").addEventListener("click", function(){
       localStorage.removeItem("user");
       localStorage.removeItem("usrname");
+      localStorage.removeItem("email");
       window.location.href="/index.html";
       
       
@@ -72,7 +73,7 @@ async function loadNotes() {
    const noteDivs = notesContainer.querySelectorAll(".NoteDiv:not(.template)");
 noteDivs.forEach(div => div.remove()); // clear old notes
 
-    const res = await fetch("/api/notes");
+    const res = await fetch("/api/notes?email=" + localStorage.getItem("email"));
     const notes = await res.json();
 
     countSpan.innerText = notes.length === 0 ? "No note found." : `${notes.length} note(s) found.`;
@@ -151,6 +152,7 @@ cancelBtn.addEventListener("click", () => {
 saveBtn.addEventListener("click", async () => {
     const title = document.getElementById("noteTitle").value.trim();
     const text = document.getElementById("text").value.trim();
+    let mail = localStorage.getItem("email");
     if(!title || !text){
         msg.innerText = "Write something before save";
         return;
@@ -160,13 +162,13 @@ saveBtn.addEventListener("click", async () => {
         await fetch(`/api/notes/${editId}`, {
             method: "PUT",
             headers: {"Content-Type": "application/json"},
-            body: JSON.stringify({ title, content: text })
+            body: JSON.stringify({ title, content: text,email:mail})
         });
     } else { // create
         await fetch("/api/notes", {
             method: "POST",
             headers: {"Content-Type": "application/json"},
-            body: JSON.stringify({ title, content: text })
+            body: JSON.stringify({ title, content: text , email:mail })
         });
     }
 

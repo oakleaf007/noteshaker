@@ -43,12 +43,14 @@ router.post("/login", async (req, res) => {
       return res.status(400).json({ message: "This account created with Google. Please sign in using google."});
 
     }
+
     const match = await bcrypt.compare(password, user.password);
 
     if (!match){
         return res.status(400).json({message: "invalid password"});
 
     }
+  
     res.status(200).json({ message: "Login successful", user})
 }
      catch (error){

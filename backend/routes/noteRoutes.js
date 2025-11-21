@@ -7,7 +7,8 @@ const router = express.Router();
 // Get notes
 
 router.get("/", async (req , res) =>{
-    const notes = await Note.find().sort({updatedAT:-1});
+    const email = req.query.email;
+    const notes = await Note.find({email}).sort({updatedAT:-1});
     res.json(notes);
 });
 
@@ -15,7 +16,10 @@ router.get("/", async (req , res) =>{
 // create
 
 router.post("/", async(req,res) => {
-    const note = new Note(req.body);
+    const {title, content, email} = req.body;
+    const note = new Note({
+       title, content, email 
+    });
     await note.save();
     res.json(note);
 });
