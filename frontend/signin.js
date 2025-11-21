@@ -49,6 +49,7 @@ document.getElementById("message").textContent =  data.message || data.error;
        localStorage.clear();
   localStorage.setItem("user", JSON.stringify(data.user));
       localStorage.setItem("usrname", data.user.name);
+      localStorage.setItem("email", data.user.email)
       localStorage.setItem("loggedIn", "true");
 
       window.location.replace(safeUrl);
